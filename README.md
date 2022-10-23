@@ -32,10 +32,24 @@ Rust常用的Json序列化反序列化框架是[serde-json](https://github.com/s
 虽然一种常见的方式是解析成成JsonValue的方式，但是我们还是用和Go语言相匹配的方式，解析成struct。
 
 ```rust
-
+     Running benches/bench.rs (target/release/deps/bench-72246fe0c0b1d2fa)
+twitter-serde/twitter-serde-marshal
+                        time:   [9.0386 µs 9.0536 µs 9.0707 µs]
+                        thrpt:  [1.6595 GiB/s 1.6626 GiB/s 1.6654 GiB/s]
+Found 41 outliers among 500 measurements (8.20%)
+  3 (0.60%) low mild
+  11 (2.20%) high mild
+  27 (5.40%) high severe
+twitter-serde/twitter-serde-unmarshal
+                        time:   [35.772 µs 35.861 µs 35.966 µs]
+                        thrpt:  [428.58 MiB/s 429.83 MiB/s 430.90 MiB/s]
+Found 31 outliers among 500 measurements (6.20%)
+  9 (1.80%) high mild
+  22 (4.40%) high severe
 ```
+可以看到serde序列化只需要9微秒(μs), 反序列化只需要36微秒(μs)。
 
-
+即使像sonic这样高度优化的Go序列化库，也比不上rust的序列化库，rust语言性能优势这么明显么？
 
 ## C++
 
