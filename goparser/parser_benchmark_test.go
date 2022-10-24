@@ -1,6 +1,7 @@
 package goparser
 
 import (
+	"encoding/json"
 	"testing"
 
 	"github.com/bytedance/sonic"
@@ -30,7 +31,7 @@ func BenchmarkSonic_Unmarshal(b *testing.B) {
 func BenchmarkEasyJson_Marshal(b *testing.B) {
 	b.ReportAllocs()
 	for i := 0; i < b.N; i++ {
-		_, err := sonic.Marshal(&twitterEasyJson)
+		_, err := json.Marshal(&twitterEasyJson)
 		if err != nil {
 			b.Fatal(err)
 		}
@@ -40,7 +41,7 @@ func BenchmarkEasyJson_Marshal(b *testing.B) {
 func BenchmarkEasyJson_Unmarshal(b *testing.B) {
 	b.ReportAllocs()
 	for i := 0; i < b.N; i++ {
-		err := sonic.Unmarshal(data, &twitterEasyJson)
+		err := json.Unmarshal(data, &twitterEasyJson)
 		if err != nil {
 			b.Fatal(err)
 		}
