@@ -8,7 +8,9 @@ pub fn serde_unmarshal(data: &[u8]) -> Twitter {
 }
 
 pub fn serde_marshal(v: &Twitter) -> Vec<u8> {
-    serde_json::to_vec(v).unwrap()
+    let mut writer = Vec::with_capacity(9000);
+    serde_json::to_writer(&mut writer, v).unwrap();
+    writer
 }
 
 #[cfg(test)]
