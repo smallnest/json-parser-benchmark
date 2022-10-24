@@ -8,17 +8,17 @@
 
 ```go
 BenchmarkSonic_Marshal
-BenchmarkSonic_Marshal-2        	   71607	     15908 ns/op	   10668 B/op	       4 allocs/op
+BenchmarkSonic_Marshal-2        	   76606	     14820 ns/op	   10732 B/op	       4 allocs/op
 BenchmarkSonic_Unmarshal
-BenchmarkSonic_Unmarshal-2      	   14989	     81607 ns/op	   17769 B/op	       3 allocs/op
+BenchmarkSonic_Unmarshal-2      	   16495	     71858 ns/op	   18143 B/op	       3 allocs/op
 BenchmarkEasyJson_Marshal
-BenchmarkEasyJson_Marshal-2     	   15283	     77838 ns/op	   21405 B/op	      66 allocs/op
+BenchmarkEasyJson_Marshal-2     	    7506	    153739 ns/op	   20190 B/op	      63 allocs/op
 BenchmarkEasyJson_Unmarshal
-BenchmarkEasyJson_Unmarshal-2   	    7549	    146113 ns/op	   22405 B/op	     123 allocs/op
+BenchmarkEasyJson_Unmarshal-2   	    3248	    368230 ns/op	    4744 B/op	     128 allocs/op
 BenchmarkJsoniter_Marshal
-BenchmarkJsoniter_Marshal-2     	   32162	     40143 ns/op	   20214 B/op	      64 allocs/op
+BenchmarkJsoniter_Marshal-2     	   37672	     32388 ns/op	   20211 B/op	      64 allocs/op
 BenchmarkJsoniter_Unmarshal
-BenchmarkJsoniter_Unmarshal-2   	    9399	    134121 ns/op	   26194 B/op	     444 allocs/op
+BenchmarkJsoniter_Unmarshal-2   	    8688	    166978 ns/op	   26194 B/op	     444 allocs/op
 ```
 
 看一看到Sonic的序列化和反序列化d都非常优秀。这序列化反序列化`twitter.json`时，序列化平均需要16微秒(μs)， 反序列化需要82微秒(μs)。
