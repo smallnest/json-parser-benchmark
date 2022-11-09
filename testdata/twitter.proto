@@ -1,0 +1,122 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+message SomeMessage {
+
+    message Hashtags {
+        string text = 1;
+        repeated uint32 indices = 2;
+    }
+
+    message Entities {
+        repeated google.protobuf.Any urls = 1;
+        repeated Hashtags hashtags = 2;
+        repeated google.protobuf.Any user_mentions = 3;
+    }
+
+    message Metadata {
+        string iso_language_code = 1;
+        string result_type = 2;
+    }
+
+    message Urls {
+        google.protobuf.Any expanded_url = 1;
+        string url = 2;
+        repeated uint32 indices = 3;
+    }
+
+    message Url {
+        repeated Urls urls = 1;
+    }
+
+    message Description {
+        repeated google.protobuf.Any urls = 1;
+    }
+
+    message Entities1 {
+        Url url = 1;
+        Description description = 2;
+    }
+
+    message User {
+        string profile_sidebar_fill_color = 1;
+        string profile_sidebar_border_color = 2;
+        bool profile_background_tile = 3;
+        string name = 4;
+        string profile_image_url = 5;
+        string created_at = 6;
+        string location = 7;
+        google.protobuf.Any follow_request_sent = 8;
+        string profile_link_color = 9;
+        bool is_translator = 10;
+        string id_str = 11;
+        Entities1 entities = 12;
+        bool default_profile = 13;
+        bool contributors_enabled = 14;
+        uint32 favourites_count = 15;
+        google.protobuf.Any url = 16;
+        string profile_image_url_https = 17;
+        int32 utc_offset = 18;
+        uint32 id = 19;
+        bool profile_use_background_image = 20;
+        uint32 listed_count = 21;
+        string profile_text_color = 22;
+        string lang = 23;
+        uint32 followers_count = 24;
+        bool protected = 25;
+        google.protobuf.Any notifications = 26;
+        string profile_background_image_url_https = 27;
+        string profile_background_color = 28;
+        bool verified = 29;
+        bool geo_enabled = 30;
+        string time_zone = 31;
+        string description = 32;
+        bool default_profile_image = 33;
+        string profile_background_image_url = 34;
+        uint32 statuses_count = 35;
+        uint32 friends_count = 36;
+        google.protobuf.Any following = 37;
+        bool show_all_inline_media = 38;
+        string screen_name = 39;
+    }
+
+    message Statuses {
+        google.protobuf.Any coordinates = 1;
+        bool favorited = 2;
+        bool truncated = 3;
+        string created_at = 4;
+        string id_str = 5;
+        Entities entities = 6;
+        google.protobuf.Any in_reply_to_user_id_str = 7;
+        google.protobuf.Any contributors = 8;
+        string text = 9;
+        Metadata metadata = 10;
+        uint32 retweet_count = 11;
+        google.protobuf.Any in_reply_to_status_id_str = 12;
+        uint64 id = 13;
+        google.protobuf.Any geo = 14;
+        bool retweeted = 15;
+        google.protobuf.Any in_reply_to_user_id = 16;
+        google.protobuf.Any place = 17;
+        User user = 18;
+        google.protobuf.Any in_reply_to_screen_name = 19;
+        string source = 20;
+        google.protobuf.Any in_reply_to_status_id = 21;
+    }
+
+    message Search_metadata {
+        uint64 max_id = 1;
+        uint64 since_id = 2;
+        string refresh_url = 3;
+        string next_results = 4;
+        uint32 count = 5;
+        double completed_in = 6;
+        string since_id_str = 7;
+        string query = 8;
+        string max_id_str = 9;
+    }
+
+    repeated Statuses statuses = 1;
+    Search_metadata search_metadata = 2;
+}
